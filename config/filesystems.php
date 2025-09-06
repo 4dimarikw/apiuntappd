@@ -60,6 +60,12 @@ return [
             'report' => false,
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root'   => public_path('storage/media'),
+            'url'    => env('APP_URL') . '/storage/media',
+        ],
+
     ],
 
     /*
