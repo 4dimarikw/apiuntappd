@@ -8,7 +8,6 @@ namespace App\MoonShine\Resources;
 use App\MoonShine\Pages\Beer\BeerDetailPage;
 use App\MoonShine\Pages\Beer\BeerFormPage;
 use App\MoonShine\Pages\Beer\BeerIndexPage;
-use App\MoonShine\Resources\Traits\BeerResourceActions;
 use App\MoonShine\Resources\Traits\EntityResource;
 use App\MoonShine\Resources\Traits\EntityResourceActions;
 use Domain\Entity\Models\Beer;
@@ -21,7 +20,6 @@ use MoonShine\Laravel\Resources\ModelResource;
  */
 class BeerResource extends ModelResource
 {
-    use BeerResourceActions;
     use EntityResourceActions;
     use EntityResource;
 

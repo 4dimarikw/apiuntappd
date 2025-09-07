@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Domain\Entity\Actions\BackUpTable;
 use Domain\Entity\Models\Beer;
-use Domain\Untappd\Models\UBeer;
 use Illuminate\Console\Command;
 use Throwable;
 

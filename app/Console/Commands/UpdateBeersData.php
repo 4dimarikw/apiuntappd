@@ -2,12 +2,10 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\UpdateBeerDataJob;
+use App\Jobs\UpdateEntityDataJob;
 use Domain\Entity\Models\Beer;
 use Illuminate\Console\Command;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
-use Services\Untappd\Exceptions\UntappdServiceException;
 use Throwable;
 
 class UpdateBeersData extends Command
@@ -22,29 +20,28 @@ class UpdateBeersData extends Command
      */
     public function handle(): int
     {
-        $UBeers = Beer::all();
+        $beers = Beer::all();
 
         $report = ['count' => 0, 'bids' => []];
 
-        foreach ($UBeers as $UBeer) {
+        foreach ($beers as $beer) {
             try {
-                $twoWeeksAgo = Carbon::now()->subWeeks(2);
+//                $twoWeeksAgo = Carbon::now()->subWeeks(2);
+//
+//                if ($beer->updated_at > $twoWeeksAgo) {
+//                    continue;
+//                }
 
-                if ($UBeer->updated_at > $twoWeeksAgo) {
-                    continue;
-                }
-
-                UpdateBeerDataJob::dispatchSync($UBeer, config('untappd.update_limit'));
+                UpdateEntityDataJob::dispatchSync($beer, config('untappd.update_limit'));
 
                 $report['count']++;
-                $report['bids'][] = $UBeer->bid;
+                $report['bids'][] = $beer->bid;
 
                 sleep(2);
-            } catch (UntappdServiceException $e) {
+            } catch (Throwable $e) {
                 if ($e->getCode() === 429) {
                     break;
                 }
-            } catch (Throwable $e) {
                 Log::channel('database')->error('Ошибка при обновлении данных Beer', $report);
                 report($e);
             }

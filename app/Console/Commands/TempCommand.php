@@ -28,7 +28,7 @@ class TempCommand extends Command
 
         $model = new Beer();
 
-        dump($model->test());
+   
         dump($model->getImageColumn());
 
 
