@@ -4,8 +4,89 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "434689ffc6e843d31e197730c197a4fc",
+    "content-hash": "894cd78e636a859513277401885d43e9",
     "packages": [
+        {
+            "name": "blade-ui-kit/blade-icons",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driesvints/blade-icons.git",
+                "reference": "7b743f27476acb2ed04cb518213d78abe096e814"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driesvints/blade-icons/zipball/7b743f27476acb2ed04cb518213d78abe096e814",
+                "reference": "7b743f27476acb2ed04cb518213d78abe096e814",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/filesystem": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/view": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "php": "^7.4|^8.0",
+                "symfony/console": "^5.3|^6.0|^7.0",
+                "symfony/finder": "^5.3|^6.0|^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5.1",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^9.0|^10.5|^11.0"
+            },
+            "bin": [
+                "bin/blade-icons-generate"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BladeUI\\Icons\\BladeIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "BladeUI\\Icons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of icons in your Laravel Blade views.",
+            "homepage": "https://github.com/blade-ui-kit/blade-icons",
+            "keywords": [
+                "blade",
+                "icons",
+                "laravel",
+                "svg"
+            ],
+            "support": {
+                "issues": "https://github.com/blade-ui-kit/blade-icons/issues",
+                "source": "https://github.com/blade-ui-kit/blade-icons"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/driesvints",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.paypal.com/paypalme/driesvints",
+                    "type": "paypal"
+                }
+            ],
+            "time": "2025-02-13T20:35:06+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.14.0",
@@ -7464,6 +7545,177 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "yurizoom/moonshine-log-viewer",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurizoom/moonshine-log-viewer.git",
+                "reference": "9e067897d29042c53e6a5c3d1ddb53f9520cf172"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurizoom/moonshine-log-viewer/zipball/9e067897d29042c53e6a5c3d1ddb53f9520cf172",
+                "reference": "9e067897d29042c53e6a5c3d1ddb53f9520cf172",
+                "shasum": ""
+            },
+            "require": {
+                "moonshine/moonshine": "^3.0",
+                "php": "^8.2"
+            },
+            "conflict": {
+                "moonshine/moonshine": "<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YuriZoom\\MoonShineLogViewer\\LogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YuriZoom\\MoonShineLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yurizoom",
+                    "homepage": "https://github.com/yurizoom",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Log viewer for MoonShine",
+            "keywords": [
+                "Viewer",
+                "log",
+                "moonshine"
+            ],
+            "support": {
+                "issues": "https://github.com/yurizoom/moonshine-log-viewer/issues",
+                "source": "https://github.com/yurizoom/moonshine-log-viewer/tree/2.0.1"
+            },
+            "time": "2025-03-01T09:29:30+00:00"
+        },
+        {
+            "name": "yurizoom/moonshine-media-manager",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurizoom/moonshine-media-manager.git",
+                "reference": "65805fe56d99d7e0e1b86687be75f7f7db2e4f40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurizoom/moonshine-media-manager/zipball/65805fe56d99d7e0e1b86687be75f7f7db2e4f40",
+                "reference": "65805fe56d99d7e0e1b86687be75f7f7db2e4f40",
+                "shasum": ""
+            },
+            "require": {
+                "moonshine/moonshine": "^3.0",
+                "php": "^8.2"
+            },
+            "conflict": {
+                "moonshine/moonshine": "<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YuriZoom\\MoonShineMediaManager\\MediaManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YuriZoom\\MoonShineMediaManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yurizoom",
+                    "homepage": "https://github.com/yurizoom",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Media manager for MoonShine",
+            "keywords": [
+                "manager",
+                "media",
+                "moonshine"
+            ],
+            "support": {
+                "issues": "https://github.com/yurizoom/moonshine-media-manager/issues",
+                "source": "https://github.com/yurizoom/moonshine-media-manager/tree/2.0.0"
+            },
+            "time": "2025-03-06T04:47:27+00:00"
+        },
+        {
+            "name": "yurizoom/moonshine-scheduling",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurizoom/moonshine-scheduling.git",
+                "reference": "bbb06627933c0bb01d127e67df6bb8d53605ed08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurizoom/moonshine-scheduling/zipball/bbb06627933c0bb01d127e67df6bb8d53605ed08",
+                "reference": "bbb06627933c0bb01d127e67df6bb8d53605ed08",
+                "shasum": ""
+            },
+            "require": {
+                "moonshine/moonshine": "^3.0",
+                "php": "^8.2"
+            },
+            "conflict": {
+                "moonshine/moonshine": "<3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YuriZoom\\MoonShineScheduling\\SchedulingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YuriZoom\\MoonShineScheduling\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yurizoom",
+                    "homepage": "https://github.com/yurizoom",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Task scheduling extension for MoonShine",
+            "keywords": [
+                "moonshine",
+                "scheduling",
+                "task"
+            ],
+            "support": {
+                "issues": "https://github.com/yurizoom/moonshine-scheduling/issues",
+                "source": "https://github.com/yurizoom/moonshine-scheduling/tree/2.0.1"
+            },
+            "time": "2025-02-15T16:42:34+00:00"
         }
     ],
     "packages-dev": [

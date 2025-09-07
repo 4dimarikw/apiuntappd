@@ -4,6 +4,7 @@ use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
+use Support\Logging\Database\DatabaseLoggerFactory;
 
 return [
 
@@ -125,6 +126,11 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+        'database' => [
+            'driver' => 'custom',
+            'via'    => DatabaseLoggerFactory::class,
         ],
 
     ],

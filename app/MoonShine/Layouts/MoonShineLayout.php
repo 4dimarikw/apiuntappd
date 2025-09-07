@@ -4,32 +4,17 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
-use MoonShine\Laravel\Layouts\CompactLayout;
+use App\MoonShine\Resources\BeerResource;
+use App\MoonShine\Resources\BreweryResource;
+use App\MoonShine\Resources\LogResource;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Laravel\Components\Layout\{Locales, Notifications, Profile, Search};
-use MoonShine\UI\Components\{Breadcrumbs,
-    Components,
-    Layout\Flash,
-    Layout\Div,
-    Layout\Body,
-    Layout\Burger,
-    Layout\Content,
-    Layout\Footer,
-    Layout\Head,
-    Layout\Favicon,
-    Layout\Assets,
-    Layout\Meta,
-    Layout\Header,
-    Layout\Html,
-    Layout\Layout,
-    Layout\Logo,
-    Layout\Menu,
-    Layout\Sidebar,
-    Layout\ThemeSwitcher,
-    Layout\TopBar,
-    Layout\Wrapper,
-    When};
+use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\MenuManager\MenuItem;
+use MoonShine\UI\Components\{Layout\Layout};
+use YuriZoom\MoonShineLogViewer\Pages\LogViewerPage;
+use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
+use YuriZoom\MoonShineScheduling\Pages\SchedulingPage;
 
 final class MoonShineLayout extends CompactLayout
 {
@@ -43,6 +28,39 @@ final class MoonShineLayout extends CompactLayout
     protected function menu(): array
     {
         return [
+            MenuItem::make(
+                static fn() => 'Untappd Beer',
+                BeerResource::class,
+            )->icon(svg('untappd')->toHtml(), custom: true),
+
+            MenuItem::make(
+                static fn() => 'Untappd Brewery',
+                BreweryResource::class,
+            )->icon(svg('untappd')->toHtml(), custom: true),
+
+            MenuItem::make(
+                static fn() => __('project.moonshine.ui.log_resource'),
+                LogResource::class,
+                'document-text'
+            )->canSee(static fn(): bool => request()->user('moonshine')->isSuperUser()),
+
+            MenuItem::make(
+                __('Планировщик заданий'),
+                SchedulingPage::class,
+                'clock'
+            ),
+
+            MenuItem::make(
+                __('Журнал системный'),
+                LogViewerPage::class,
+            )->icon(svg('file-waveform')->toHtml(), custom: true),
+
+            MenuItem::make(
+                __('Media manager'),
+                MediaManagerPage::class,
+            )->icon(svg('folder-tree')->toHtml(), custom: true),
+
+
             ...parent::menu(),
         ];
     }

@@ -12,9 +12,7 @@ use MoonShine\Laravel\Forms\FiltersForm;
 use MoonShine\Laravel\Forms\LoginForm;
 use MoonShine\Laravel\Http\Middleware\Authenticate;
 use MoonShine\Laravel\Http\Middleware\ChangeLocale;
-use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Models\MoonshineUser;
-use MoonShine\Laravel\Pages\Dashboard;
 use MoonShine\Laravel\Pages\ErrorPage;
 use MoonShine\Laravel\Pages\LoginPage;
 use MoonShine\Laravel\Pages\ProfilePage;
@@ -92,9 +90,25 @@ return [
     ],
 
     // Localizations
-    'locale' => 'en',
+    'locale' => 'ru',
     'locale_key' => ChangeLocale::KEY,
     'locales' => [
         // en
+    ],
+
+    'scheduling' => [
+        'auto_menu' => false,
+    ],
+
+    'log_viewer' => [
+        'auto_menu' => false,
+        'path' => storage_path('logs'),
+    ],
+
+    'media_manager' => [
+        'auto_menu' => false,
+        'disk' => config('filesystem.default', 'public'),
+        'allowed_ext' => 'jpg,jpeg,png,pdf,doc,docx,zip',
+        'default_view' => 'table',
     ],
 ];

@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+    'telegram' => [
+        'bot' => env('TELEGRAM_BOT_NAME'),  // The bot's username
+        'client_id' => null,
+        'client_secret' => env('TELEGRAM_BOT_LOGGER_TOKEN'),
+        'redirect' => env('TELEGRAM_AUTH_REDIRECT_URI'),
+    ],
+
+    'untappd' => [
+        'api_url' => 'https://api.untappd.com/v4',
+        'rate_limit' => 100,
+        'access_token' => env('UNTAPPD_ACCESS_TOKEN'),
+    ],
+
 ];

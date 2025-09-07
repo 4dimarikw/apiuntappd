@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+Schedule::command('queue:work --stop-when-empty')->everyMinute();
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+Schedule::command('project:replace-part-img-url')->when(fn() => false);
+
+Schedule::command('project:update-ubeers-data')->hourly();
+
+Schedule::command('project:export-db-table ubeers')->when(fn() => false);
