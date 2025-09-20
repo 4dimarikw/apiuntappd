@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('v1')
-    ->middleware(['api', 'accept:application/json'])
+    ->middleware(['api'])
     ->group(function () {
         Route::get('{entity}/info/{id}', [EntityController::class, 'info']);
     });
